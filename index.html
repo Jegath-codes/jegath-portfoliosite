@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f4ef">
+  <title>Jegath M | Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#f6f4ef;--paper:#fffefa;--ink:#20221f;--muted:#777970;--line:#e5e2d9;--accent:#d97745;--dark:#252722;--serif:Georgia,serif}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:85px}
+    body{background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px,90%);margin:auto}
+    header{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(246,244,239,.92);backdrop-filter:blur(14px);z-index:10}
+    .brand{font-family:Manrope,sans-serif;font-size:21px;font-weight:800;letter-spacing:-1px}.brand span{color:var(--accent)}
+    nav{display:flex;gap:29px;align-items:center}nav a{font-size:12px;color:#5f625b;transition:.25s}nav a:hover{color:var(--accent)}
+    .nav-contact{border:1px solid #bdb9ae;padding:9px 16px;border-radius:3px;color:var(--ink)}
+    .hero{min-height:620px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:55px;padding:82px 0 90px}
+    .eyebrow{font-size:11px;letter-spacing:2.3px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:22px}
+    h1{font-family:Manrope,sans-serif;font-size:clamp(45px,6.5vw,78px);line-height:1.04;letter-spacing:-4px;font-weight:700;max-width:620px}
+    h1 em{font-family:var(--serif);font-weight:400;color:var(--accent);letter-spacing:-3px}
+    .hero-copy{font-size:15px;color:var(--muted);max-width:470px;margin:25px 0 30px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}.btn{padding:13px 20px;font-size:12px;font-weight:700;border:1px solid var(--dark);transition:.25s}.btn.primary{background:var(--dark);color:white}.btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px #2222}
+    .hero-note{font-size:11px;color:var(--muted);margin-top:24px;letter-spacing:.3px}
+    .visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:420px}
+    .visual:before{content:"";position:absolute;width:360px;height:360px;border:1px solid #ded9ce;border-radius:50%}
+    .photo-frame{width:min(390px,100%);height:390px;background:#e9e5dc;border:10px solid var(--paper);box-shadow:0 25px 55px #29251b18;position:relative;z-index:1;overflow:hidden;transform:rotate(2deg)}
+    .photo-frame img{width:100%;height:100%;object-fit:cover;display:block}
+    .photo-label{position:absolute;right:-5px;bottom:25px;background:var(--paper);padding:13px 18px;box-shadow:0 8px 24px #2222;z-index:2;font-size:11px;letter-spacing:1px}
+    .photo-label strong{display:block;font-family:Manrope,sans-serif;font-size:14px;letter-spacing:0}
+    .section{padding:92px 0;border-top:1px solid var(--line)}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:38px}
+    .kicker{font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;font-weight:700;margin-bottom:10px}
+    h2{font:700 clamp(30px,4vw,43px)/1.15 Manrope,sans-serif;letter-spacing:-1.7px}
+    .section-intro{max-width:370px;color:var(--muted);font-size:13px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px}
+    .about-grid p{color:#686b63;font-size:14px;margin-bottom:15px}
+    .facts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .fact{padding:21px;background:var(--paper);border:1px solid var(--line)}
+    .fact small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:1.4px;margin-bottom:7px}
+    .fact strong{font:700 15px Manrope,sans-serif}
+    .skill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+    .skill-card{background:var(--paper);border:1px solid var(--line);padding:22px 18px;min-height:142px;transition:.25s}
+    .skill-card:hover,.project:hover{transform:translateY(-5px);box-shadow:0 14px 30px #27231a0d}
+    .skill-icon{font-size:20px;margin-bottom:15px;color:var(--accent)}
+    .skill-card h3{font:700 14px Manrope,sans-serif;margin-bottom:7px}
+    .skill-card p{font-size:11px;color:var(--muted);line-height:1.7}
+    .project-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .project{background:var(--paper);border:1px solid var(--line);padding:28px;min-height:260px;transition:.25s;display:flex;flex-direction:column}
+    .project-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px}
+    .project-no{font:700 12px Manrope;color:var(--accent)}
+    .tag{font-size:9px;text-transform:uppercase;letter-spacing:1px;border:1px solid var(--line);padding:6px 9px;color:var(--muted)}
+    .project h3{font:700 21px Manrope,sans-serif;letter-spacing:-.5px;margin-bottom:10px}
+    .project p{font-size:13px;color:var(--muted);margin-bottom:18px}
+    .stack{font-size:10px;color:#9a6a4f;letter-spacing:.3px;margin-top:auto}
+    .education{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    .edu-card{padding:25px;background:var(--paper);border:1px solid var(--line)}
+    .edu-year{font-size:10px;letter-spacing:1px;color:var(--accent);font-weight:700}
+    .edu-card h3{font:700 16px Manrope;margin:10px 0 4px}.edu-card p{font-size:12px;color:var(--muted)}
+    .soft-list{display:flex;flex-wrap:wrap;gap:10px}.soft-list span{padding:11px 16px;border:1px solid var(--line);background:var(--paper);font-size:12px}
+    .contact{background:var(--dark);color:#fff;padding:65px 7%;display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+    .contact .kicker{color:#e7a17c}.contact h2{font-size:clamp(32px,4vw,48px)}.contact p{color:#c4c5bd;font-size:13px;margin-top:15px;max-width:390px}
+    .contact-links{display:flex;flex-direction:column;gap:13px;align-items:flex-start}.contact-links a{font-size:13px;color:#f3e9dd;border-bottom:1px solid #77786e;padding-bottom:7px;transition:.2s}.contact-links a:hover{color:#e7a17c}
+    footer{padding:22px 0;display:flex;justify-content:space-between;color:var(--muted);font-size:10px;letter-spacing:.4px}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:translateY(0)}
+    @media(max-width:800px){nav{gap:14px}nav a{font-size:10px}.hero{grid-template-columns:1fr;gap:25px;padding:65px 0}.visual{min-height:350px;grid-row:1}.photo-frame{width:300px;height:300px}.visual:before{width:290px;height:290px}.hero-text{grid-row:2}.skill-grid{grid-template-columns:repeat(2,1fr)}.about-grid{grid-template-columns:1fr;gap:25px}.contact{grid-template-columns:1fr}}
+    @media(max-width:520px){header{height:auto;min-height:68px;align-items:flex-start;padding:17px 0;gap:12px;flex-direction:column}nav{width:100%;justify-content:space-between;gap:8px}nav a{font-size:9px}.nav-contact{padding:5px 8px}.hero{padding-top:35px}h1{letter-spacing:-2.5px}.section{padding:65px 0}.section-head{display:block}.section-intro{margin-top:15px}.skill-grid{gap:9px}.skill-card{padding:17px 13px}.project-grid,.education{grid-template-columns:1fr}.contact{padding:45px 25px}footer{gap:10px;flex-direction:column}}
+  </style>
+</head>
+<body>
+<header class="wrap">
+  <a class="brand" href="#home">JEGATH<span>.</span></a>
+  <nav>
+    <a href="#about">ABOUT</a><a href="#skills">SKILLS</a><a href="#projects">PROJECTS</a><a href="#education">EDUCATION</a><a class="nav-contact" href="#contact">LET'S TALK ↗</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap" id="home">
+    <div class="hero-text reveal">
+      <div class="eyebrow">BCA Graduate · Aspiring Developer</div>
+      <h1>Hi, I'm <em>Jegath,</em><br> I build for the<br> digital world.</h1>
+      <p class="hero-copy">A curious and detail-oriented BCA graduate passionate about web development, programming, and creating useful digital experiences.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">EXPLORE MY WORK ↗</a>
+        <a class="btn" href="mailto:jegath.mahe@gmail.com">CONTACT ME</a>
+      </div>
+      <p class="hero-note">OPEN TO ENTRY-LEVEL DEVELOPER OPPORTUNITIES</p>
+    </div>
+    <div class="visual reveal">
+      <div class="photo-frame"><img src="profile.gif" alt="Jegath portfolio profile image"></div>
+      <div class="photo-label"><strong>JEGATH M</strong>DEVELOPER IN PROGRESS</div>
+    </div>
+  </section>
+
+  <section class="section" id="about"><div class="wrap">
+    <div class="section-head reveal"><div><div class="kicker">01 / A LITTLE ABOUT ME</div><h2>Curiosity makes<br>things happen.</h2></div><p class="section-intro">I enjoy learning new technologies and turning ideas into simple, functional web experiences.</p></div>
+    <div class="about-grid reveal">
+      <div><p>I'm a Bachelor of Computer Applications graduate from Loyola College of Arts and Science. I have a foundation in web technologies, programming languages, and database concepts.</p><p>As a fresher, I'm looking forward to learning from real-world projects, improving my development skills, and contributing to a collaborative team.</p></div>
+      <div class="facts">
+        <div class="fact"><small>Education</small><strong>BCA Graduate</strong></div>
+        <div class="fact"><small>Based in</small><strong>Salem, Tamil Nadu</strong></div>
+        <div class="fact"><small>Focus</small><strong>Web Development</strong></div>
+        <div class="fact"><small>Availability</small><strong>Entry-level roles</strong></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="section" id="skills"><div class="wrap">
+    <div class="section-head reveal"><div><div class="kicker">02 / WHAT I WORK WITH</div><h2>My skillset.</h2></div><p class="section-intro">Technologies and tools I've learned through my coursework and projects.</p></div>
+    <div class="skill-grid reveal">
+      <article class="skill-card"><div class="skill-icon">⌘</div><h3>Programming</h3><p>Java · Python · C · C++</p></article>
+      <article class="skill-card"><div class="skill-icon">〈/〉</div><h3>Web Technologies</h3><p>HTML5 · CSS3 · JavaScript · React.js · PHP</p></article>
+      <article class="skill-card"><div class="skill-icon">▤</div><h3>Databases</h3><p>MySQL · SQL</p></article>
+      <article class="skill-card"><div class="skill-icon">✳</div><h3>Tools</h3><p>Git · GitHub · VS Code · MS Word · Excel</p></article>
+    </div>
+  </div></section>
+
+  <section class="section" id="projects"><div class="wrap">
+    <div class="section-head reveal"><div><div class="kicker">03 / SELECTED WORK</div><h2>Projects I've built.</h2></div><p class="section-intro">A look at the academic and personal projects where I've put my learning into practice.</p></div>
+    <div class="project-grid reveal">
+      <article class="project"><div class="project-top"><span class="project-no">PROJECT 01</span><span class="tag">TEAM PROJECT</span></div><h3>Online Hostel Management System</h3><p>A web-based hostel administration system designed to streamline student room allocation, attendance, and fee tracking. Worked with teammates on core modules and database integration.</p><div class="stack">HTML5 · CSS3 · JavaScript · PHP · MySQL</div></article>
+      <article class="project"><div class="project-top"><span class="project-no">PROJECT 02</span><span class="tag">PERSONAL PROJECT</span></div><h3>Personal Developer Portfolio</h3><p>A responsive portfolio website created to present my technical skills, academic projects, and developer profile with a clean, mobile-friendly layout.</p><div class="stack">HTML5 · CSS3 · JavaScript · GitHub Pages</div></article>
+    </div>
+  </div></section>
+
+  <section class="section" id="education"><div class="wrap">
+    <div class="section-head reveal"><div><div class="kicker">04 / LEARNING JOURNEY</div><h2>Education.</h2></div><p class="section-intro">The academic foundation behind my interest in software and web development.</p></div>
+    <div class="education reveal">
+      <article class="edu-card"><div class="edu-year">2022 — 2026</div><h3>Bachelor of Computer Applications (BCA)</h3><p>Loyola College of Arts and Science · CGPA: 6.5 / 10</p></article>
+      <article class="edu-card"><div class="edu-year">2022</div><h3>Higher Secondary Certificate (HSC)</h3><p>Sri Ramakrishna Saradha Higher Secondary School</p></article>
+      <article class="edu-card"><div class="edu-year">2020</div><h3>Secondary School Leaving Certificate (SSLC)</h3><p>Sri Ramakrishna Saradha Higher Secondary School</p></article>
+      <article class="edu-card"><div class="edu-year">CORE SUBJECTS</div><h3>Relevant Coursework</h3><p>Data Structures · Operating Systems · Web Development · SQL · Java · Python</p></article>
+    </div>
+  </div></section>
+
+  <section class="section"><div class="wrap">
+    <div class="section-head reveal"><div><div class="kicker">05 / BEYOND CODE</div><h2>Professional soft skills.</h2></div></div>
+    <div class="soft-list reveal"><span>Team Collaboration</span><span>Problem Solving</span><span>Adaptability</span><span>Time Management</span><span>Continuous Learning</span><span>Communication</span></div>
+  </div></section>
+
+  <section class="wrap" id="contact" style="padding-bottom:70px">
+    <div class="contact reveal"><div><div class="kicker">06 / GET IN TOUCH</div><h2>Let's build<br>something meaningful.</h2><p>I'm interested in entry-level opportunities where I can learn, contribute, and grow as a developer. Feel free to reach out.</p></div>
+      <div class="contact-links"><a href="mailto:jegath.mahe@gmail.com">jegath.mahe@gmail.com ↗</a><a href="https://github.com/jegath-codes" target="_blank" rel="noopener">GitHub — github.com/jegath-codes ↗</a><a href="https://jegath-codes.github.io/Jegath-codes-/" target="_blank" rel="noopener">Portfolio ↗</a></div>
+    </div>
+  </section>
+</main>
+<footer class="wrap"><span>© 2026 JEGATH M</span><span>DESIGNED WITH CURIOSITY & CODE</span></footer>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.12});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
